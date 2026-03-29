@@ -1,0 +1,65 @@
+﻿node.exe :  WARNING  
+--no-cache is deprecated 
+and will be removed in a 
+future major version. Use 
+--cache=local:r,remote:r
+At D:\Installation\Nodejs\
+npx.ps1:29 char:3
++   & $NODE_EXE 
+$NPX_CLI_JS $args
++   ~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~
+    + CategoryInfo        
+      : NotSpecified: (   
+  WARNING  --no-...ocal   
+ :r,remote:r:String) [    
+], RemoteException
+    + FullyQualifiedError 
+   Id : NativeCommandErr  
+  or
+ 
+ΓÇó turbo 2.8.20
+
+   ΓÇó Packages in scope: web
+   ΓÇó Running build in 1 packages
+   ΓÇó Remote caching disabled
+
+web:build: cache miss, executing ee5fd5eebc1c1361
+web:build: 
+web:build: > web@0.0.1 build D:\PROJECT\next-dashboard\apps\web
+web:build: > next build
+web:build: 
+web:build: Γû▓ Next.js 16.1.6 (Turbopack)
+web:build: - Environments: .env
+web:build: 
+web:build:   Creating an optimized production build ...
+web:build: Γ£ô Compiled successfully in 13.0s
+web:build:   Running TypeScript ...
+web:build: Failed to compile.
+web:build: 
+web:build: ./lib/auth/auth.ts:9:3
+web:build: Type error: Object literal may only specify known properties, and 'datasources' does not exist in type 'Subset<PrismaClientOptions, PrismaClientOptions>'.
+web:build: 
+web:build: [0m [90m  7 |[39m [90m// Initialize Prisma Client[39m
+web:build:  [90m  8 |[39m [36mconst[39m prisma [33m=[39m [36mnew[39m [33mPrismaClient[39m({
+web:build: [31m[1m>[22m[39m[90m  9 |[39m   datasources[33m:[39m {
+web:build:  [90m    |[39m   [31m[1m^[22m[39m
+web:build:  [90m 10 |[39m     db[33m:[39m {
+web:build:  [90m 11 |[39m       url[33m:[39m process[33m.[39menv[33m.[39m[33mDATABASE_URL[39m[33m,[39m
+web:build:  [90m 12 |[39m     }[33m,[39m[0m
+web:build: Next.js build worker exited with code: 1 and signal: null
+web:build: ΓÇëELIFECYCLEΓÇë Command failed with exit code 1.
+ ERROR  web#build: 
+command (D:\PROJECT\next-d
+ashboard\apps\web) C:\User
+s\sharf\AppData\Roaming\np
+m\pnpm.cmd run build 
+exited (1)
+
+ Tasks:    0 successful, 1 total
+Cached:    0 cached, 1 total
+  Time:    33.615s 
+Failed:    web#build
+
+ ERROR  run failed: 
+command  exited (1)

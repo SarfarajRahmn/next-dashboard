@@ -1,15 +1,17 @@
-import { Geist, Geist_Mono, JetBrains_Mono } from "next/font/google"
+import { Geist, JetBrains_Mono } from "next/font/google"
 
 import "@workspace/ui/globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { cn } from "@workspace/ui/lib/utils";
+import { AuthProvider } from "@/components/providers/auth-providers"
+import { Toaster } from "@workspace/ui/components/sonner"
+import { cn } from "@workspace/ui/lib/utils"
 
 const fontSans = Geist({
   subsets: ["latin"],
   variable: "--font-sans",
 })
 
-const jetbrainsMono = JetBrains_Mono({subsets:['latin'],variable:'--font-mono'})
+const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" })
 
 export default function RootLayout({
   children,
@@ -23,7 +25,12 @@ export default function RootLayout({
       className={cn("antialiased", fontSans.variable, "font-mono", jetbrainsMono.variable)}
     >
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <AuthProvider>
+            {children}
+            <Toaster />
+          </AuthProvider>
+        </ThemeProvider>
       </body>
     </html>
   )

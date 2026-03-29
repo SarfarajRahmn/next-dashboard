@@ -1,0 +1,54 @@
+﻿Scope: all 5 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 39, reused 38, downloaded 0, added 0
+../..                                    | Progress: resolved 43, reused 41, downloaded 0, added 0
+ΓÇëERR_PNPM_NO_MATCHING_VERSIONΓÇë No matching version found for @types/better-sqlite3@^9.1.2
+
+This error happened while installing a direct dependency of D:\PROJECT\next-dashboard\apps\web
+
+The latest release of @types/better-sqlite3 is "7.6.13".
+
+Other releases are:
+  * ts2.1: 5.2.1
+  * ts2.7: 5.2.1
+  * ts2.6: 5.2.1
+  * ts2.5: 5.2.1
+  * ts2.4: 5.2.1
+  * ts2.2: 5.2.1
+  * ts2.8: 5.2.1
+  * ts2.0: 5.2.1
+  * ts2.3: 5.2.1
+  * ts2.9: 5.2.1
+  * ts3.0: 5.4.0
+  * ts3.1: 5.4.0
+  * ts3.3: 5.4.1
+  * ts3.4: 5.4.1
+  * ts3.2: 5.4.1
+  * ts3.5: 5.4.1
+  * ts3.6: 5.4.3
+  * ts3.7: 5.4.3
+  * ts3.9: 7.5.0
+  * ts3.8: 7.5.0
+  * ts4.0: 7.6.0
+  * ts4.1: 7.6.2
+  * ts4.2: 7.6.3
+  * ts4.4: 7.6.4
+  * ts4.3: 7.6.4
+  * ts4.5: 7.6.8
+  * ts4.6: 7.6.9
+  * ts4.7: 7.6.10
+  * ts4.8: 7.6.11
+  * ts5.0: 7.6.12
+  * ts4.9: 7.6.12
+  * ts5.2: 7.6.13
+  * ts5.1: 7.6.13
+  * ts5.8: 7.6.13
+  * ts5.6: 7.6.13
+  * ts5.5: 7.6.13
+  * ts5.4: 7.6.13
+  * ts5.9: 7.6.13
+  * ts5.3: 7.6.13
+  * ts5.7: 7.6.13
+  * ts6.0: 7.6.13
+
+If you need the full list of all 33 published versions run "$ pnpm view @types/better-sqlite3 versions".

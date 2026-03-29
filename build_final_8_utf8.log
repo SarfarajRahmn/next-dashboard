@@ -1,0 +1,67 @@
+﻿node.exe :  WARNING  
+--no-cache is deprecated 
+and will be removed in a 
+future major version. Use 
+--cache=local:r,remote:r
+At D:\Installation\Nodejs\
+npx.ps1:29 char:3
++   & $NODE_EXE 
+$NPX_CLI_JS $args
++   ~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~
+    + CategoryInfo        
+      : NotSpecified: (   
+  WARNING  --no-...ocal   
+ :r,remote:r:String) [    
+], RemoteException
+    + FullyQualifiedError 
+   Id : NativeCommandErr  
+  or
+ 
+ΓÇó turbo 2.8.20
+
+   ΓÇó Packages in scope: web
+   ΓÇó Running build in 1 packages
+   ΓÇó Remote caching disabled
+
+web:build: cache miss, executing 30fb7ed40bb28e03
+web:build: 
+web:build: > web@0.0.1 build D:\PROJECT\next-dashboard\apps\web
+web:build: > next build
+web:build: 
+web:build: Γû▓ Next.js 16.1.6 (Turbopack)
+web:build: - Environments: .env
+web:build: 
+web:build:   Creating an optimized production build ...
+web:build: Γ£ô Compiled successfully in 13.9s
+web:build:   Running TypeScript ...
+web:build:   Collecting page data using 7 workers ...
+web:build: Error [PrismaClientConstructorValidationError]: Unknown property datasourceUrl provided to PrismaClient constructor.
+web:build: Read more at https://pris.ly/d/client-constructor
+web:build:     at module evaluation (D:\PROJECT\next-dashboard\apps\web\.next\server\chunks\7f36a_next_dist_esm_build_templates_app-route_0bbde920.js:434:5407)
+web:build:     at instantiateModule (D:\PROJECT\next-dashboard\apps\web\.next\server\chunks\[turbopack]_runtime.js:740:9)
+web:build:     at instantiateRuntimeModule (D:\PROJECT\next-dashboard\apps\web\.next\server\chunks\[turbopack]_runtime.js:768:12)
+web:build:     at getOrInstantiateRuntimeModule (D:\PROJECT\next-dashboard\apps\web\.next\server\chunks\[turbopack]_runtime.js:781:12)
+web:build:     at Object.m (D:\PROJECT\next-dashboard\apps\web\.next\server\chunks\[turbopack]_runtime.js:790:18)
+web:build:     at Object.<anonymous> (D:\PROJECT\next-dashboard\apps\web\.next\server\app\api\auth\[...all]\route.js:11:3)
+web:build: 
+web:build: > Build error occurred
+web:build: Error: Failed to collect page data for /api/auth/[...all]
+web:build:     at ignore-listed frames {
+web:build:   type: 'Error'
+web:build: }
+web:build: ΓÇëELIFECYCLEΓÇë Command failed with exit code 1.
+ ERROR  web#build: 
+command (D:\PROJECT\next-d
+ashboard\apps\web) C:\User
+s\sharf\AppData\Roaming\np
+m\pnpm.cmd run build 
+exited (1)
+
+ Tasks:    0 successful, 1 total
+Cached:    0 cached, 1 total
+  Time:    42.227s 
+Failed:    web#build
+
+ ERROR  run failed: 
+command  exited (1)

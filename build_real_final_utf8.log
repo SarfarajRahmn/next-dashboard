@@ -1,0 +1,105 @@
+﻿node.exe :  WARNING  
+--no-cache is deprecated 
+and will be removed in a 
+future major version. Use 
+--cache=local:r,remote:r
+At D:\Installation\Nodejs\
+npx.ps1:29 char:3
++   & $NODE_EXE 
+$NPX_CLI_JS $args
++   ~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~
+    + CategoryInfo        
+      : NotSpecified: (   
+  WARNING  --no-...ocal   
+ :r,remote:r:String) [    
+], RemoteException
+    + FullyQualifiedError 
+   Id : NativeCommandErr  
+  or
+ 
+ΓÇó turbo 2.8.20
+
+   ΓÇó Packages in scope: web
+   ΓÇó Running build in 1 packages
+   ΓÇó Remote caching disabled
+
+web:build: cache miss, executing 0e670530ab8ef827
+web:build: 
+web:build: > web@0.0.1 build D:\PROJECT\next-dashboard\apps\web
+web:build: > next build
+web:build: 
+web:build: Γû▓ Next.js 16.1.6 (Turbopack)
+web:build: - Environments: .env
+web:build: 
+web:build:   Creating an optimized production build ...
+web:build: 
+web:build: > Build error occurred
+web:build: Error: Turbopack build failed with 2 errors:
+web:build: ./apps/web/lib/auth/auth.ts:7:1
+web:build: Export PrismaLibSQL doesn't exist in target module
+web:build: [0m [90m  5 |[39m [36mimport[39m { admin } [36mfrom[39m [32m"better-auth/plugins"[39m
+web:build:  [90m  6 |[39m [36mimport[39m { createClient } [36mfrom[39m [32m"@libsql/client"[39m
+web:build: [31m[1m>[22m[39m[90m  7 |[39m [36mimport[39m { [33mPrismaLibSQL[39m } [36mfrom[39m [32m"@prisma/adapter-libsql"[39m
+web:build:  [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+web:build:  [90m  8 |[39m [36mimport[39m path [36mfrom[39m [32m"node:path"[39m
+web:build:  [90m  9 |[39m
+web:build:  [90m 10 |[39m [90m// Initialize Prisma Client with LibSQL Driver Adapter (Prisma 7)[39m[0m
+web:build: 
+web:build: The export PrismaLibSQL was not found in module [project]/node_modules/.pnpm/@prisma+adapter-libsql@7.6.0/node_modules/@prisma/adapter-libsql/dist/index-node.mjs [app-route] (ecmascript).
+web:build: Did you mean to import PrismaLibSql?
+web:build: All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+web:build: 
+web:build: Import traces:
+web:build:   App Route:
+web:build:     ./apps/web/lib/auth/auth.ts
+web:build:     ./apps/web/app/api/auth/[...all]/route.ts
+web:build: 
+web:build:   Server Component:
+web:build:     ./apps/web/lib/auth/auth.ts
+web:build:     ./apps/web/app/admin/page.tsx
+web:build: 
+web:build: 
+web:build: ./apps/web/lib/auth/auth.ts:7:1
+web:build: Export PrismaLibSQL doesn't exist in target module
+web:build: [0m [90m  5 |[39m [36mimport[39m { admin } [36mfrom[39m [32m"better-auth/plugins"[39m
+web:build:  [90m  6 |[39m [36mimport[39m { createClient } [36mfrom[39m [32m"@libsql/client"[39m
+web:build: [31m[1m>[22m[39m[90m  7 |[39m [36mimport[39m { [33mPrismaLibSQL[39m } [36mfrom[39m [32m"@prisma/adapter-libsql"[39m
+web:build:  [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+web:build:  [90m  8 |[39m [36mimport[39m path [36mfrom[39m [32m"node:path"[39m
+web:build:  [90m  9 |[39m
+web:build:  [90m 10 |[39m [90m// Initialize Prisma Client with LibSQL Driver Adapter (Prisma 7)[39m[0m
+web:build: 
+web:build: The export PrismaLibSQL was not found in module [project]/node_modules/.pnpm/@prisma+adapter-libsql@7.6.0/node_modules/@prisma/adapter-libsql/dist/index-node.mjs [app-rsc] (ecmascript).
+web:build: Did you mean to import PrismaLibSql?
+web:build: All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+web:build: 
+web:build: Import traces:
+web:build:   App Route:
+web:build:     ./apps/web/lib/auth/auth.ts
+web:build:     ./apps/web/app/api/auth/[...all]/route.ts
+web:build: 
+web:build:   Server Component:
+web:build:     ./apps/web/lib/auth/auth.ts
+web:build:     ./apps/web/app/admin/page.tsx
+web:build: 
+web:build: 
+web:build:     at <unknown> (./apps/web/lib/auth/auth.ts:7:1)
+web:build:     at <unknown> (./apps/web/lib/auth/auth.ts:7:1)
+web:build: Assertion failed: !(handle->flags & UV_HANDLE_CLOSING), file c:\ws\deps\uv\src\win\async.c, line 76
+web:build: ΓÇëELIFECYCLEΓÇë Command failed with exit code 3221226505.
+ ERROR  web#build: 
+command (D:\PROJECT\next-d
+ashboard\apps\web) C:\User
+s\sharf\AppData\Roaming\np
+m\pnpm.cmd run build 
+exited (-1073740791)
+
+ Tasks:    0 successful, 1 total
+Cached:    0 cached, 1 total
+  Time:    25.014s 
+Failed:    web#build
+
+ ERROR  run failed: 
+command  exited 
+(-1073740791)

@@ -1,0 +1,66 @@
+﻿node.exe :  WARNING  
+--no-cache is deprecated 
+and will be removed in a 
+future major version. Use 
+--cache=local:r,remote:r
+At D:\Installation\Nodejs\
+npx.ps1:29 char:3
++   & $NODE_EXE 
+$NPX_CLI_JS $args
++   ~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~
+    + CategoryInfo        
+      : NotSpecified: (   
+  WARNING  --no-...ocal   
+ :r,remote:r:String) [    
+], RemoteException
+    + FullyQualifiedError 
+   Id : NativeCommandErr  
+  or
+ 
+ΓÇó turbo 2.8.20
+
+   ΓÇó Packages in scope: web
+   ΓÇó Running build in 1 packages
+   ΓÇó Remote caching disabled
+
+web:build: cache miss, executing 9d3d9764c3c31238
+web:build: 
+web:build: > web@0.0.1 build D:\PROJECT\next-dashboard\apps\web
+web:build: > next build
+web:build: 
+web:build: Γû▓ Next.js 16.1.6 (Turbopack)
+web:build: - Environments: .env
+web:build: 
+web:build:   Creating an optimized production build ...
+web:build: Γ£ô Compiled successfully in 29.6s
+web:build:   Running TypeScript ...
+web:build: Failed to compile.
+web:build: 
+web:build: ./components/providers/auth-providers.tsx:42:16
+web:build: Type error: Argument of type 'Omit<{ redirect: boolean; token: string; url?: string | undefined; user: { id: string; createdAt: Date; updatedAt: Date; email: string; emailVerified: boolean; name: string; image?: string | null | undefined; }; }, "user"> & { ...; }' is not assignable to parameter of type 'SetStateAction<{ user: StripEmptyObjects<{ id: string; createdAt: Date; updatedAt: Date; email: string; emailVerified: boolean; name: string; image?: string | null | undefined; } & { banned: boolean | null | undefined; } & { ...; }>; session: StripEmptyObjects<...>; } | null>'.
+web:build:   Property 'session' is missing in type 'Omit<{ redirect: boolean; token: string; url?: string | undefined; user: { id: string; createdAt: Date; updatedAt: Date; email: string; emailVerified: boolean; name: string; image?: string | null | undefined; }; }, "user"> & { ...; }' but required in type '{ user: StripEmptyObjects<{ id: string; createdAt: Date; updatedAt: Date; email: string; emailVerified: boolean; name: string; image?: string | null | undefined; } & { banned: boolean | null | undefined; } & { ...; }>; session: StripEmptyObjects<...>; }'.
+web:build: 
+web:build: [0m [90m 40 |[39m
+web:build:  [90m 41 |[39m     [36mif[39m (error) [36mthrow[39m error
+web:build: [31m[1m>[22m[39m[90m 42 |[39m     setSession(data)
+web:build:  [90m    |[39m                [31m[1m^[22m[39m
+web:build:  [90m 43 |[39m   }
+web:build:  [90m 44 |[39m
+web:build:  [90m 45 |[39m   [36mconst[39m signOut [33m=[39m [36masync[39m () [33m=>[39m {[0m
+web:build: Next.js build worker exited with code: 1 and signal: null
+web:build: ΓÇëELIFECYCLEΓÇë Command failed with exit code 1.
+ ERROR  web#build: 
+command (D:\PROJECT\next-d
+ashboard\apps\web) C:\User
+s\sharf\AppData\Roaming\np
+m\pnpm.cmd run build 
+exited (1)
+
+ Tasks:    0 successful, 1 total
+Cached:    0 cached, 1 total
+  Time:    3m15.074s 
+Failed:    web#build
+
+ ERROR  run failed: 
+command  exited (1)
