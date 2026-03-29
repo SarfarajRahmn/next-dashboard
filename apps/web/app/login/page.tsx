@@ -4,11 +4,17 @@
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { authClient } from "@/lib/auth/auth-client"
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@workspace/ui/components/card"
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@workspace/ui/components/card"
 import { Button } from "@workspace/ui/components/button"
 import { Input } from "@workspace/ui/components/input"
-import { ShieldCheck, SpinnerGap } from "@phosphor-icons/react"
 import { toast } from "sonner"
+import { ShieldCheckIcon, SpinnerGapIcon } from "@phosphor-icons/react/dist/ssr"
 
 export default function LoginPage() {
   const router = useRouter()
@@ -35,7 +41,8 @@ export default function LoginPage() {
         toast.error("Access denied. This portal is for admins only.")
       }
     } catch (err: any) {
-      console.error("Login error:", err)
+      console.error("Login error full details:", JSON.stringify(err, Object.getOwnPropertyNames(err), 2))
+      console.dir(err)
       toast.error(err?.message || "Invalid credentials")
     } finally {
       setLoading(false)
@@ -48,7 +55,10 @@ export default function LoginPage() {
         {/* Logo */}
         <div className="flex flex-col items-center gap-3 text-center">
           <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary">
-            <ShieldCheck className="h-7 w-7 text-primary-foreground" weight="fill" />
+            <ShieldCheckIcon
+              className="h-7 w-7 text-primary-foreground"
+              weight="fill"
+            />
           </div>
           <div>
             <h1 className="text-2xl font-bold tracking-tight">Admin Portal</h1>
@@ -98,7 +108,7 @@ export default function LoginPage() {
               <Button type="submit" className="w-full" disabled={loading}>
                 {loading ? (
                   <>
-                    <SpinnerGap className="mr-2 h-4 w-4 animate-spin" />
+                    <SpinnerGapIcon className="mr-2 h-4 w-4 animate-spin" />
                     Signing in…
                   </>
                 ) : (

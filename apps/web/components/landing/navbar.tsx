@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Button } from "@workspace/ui/components/button"
+import Link from "next/link"
 import { SparkleIcon } from "@phosphor-icons/react/dist/ssr"
 
 export function Navbar() {
@@ -41,15 +42,19 @@ export function Navbar() {
           </a>
         </div>
         <div className="flex items-center gap-3">
-          <Button variant="ghost" size="sm">
-            Sign In
-          </Button>
-          <Button
-            size="sm"
-            className="bg-gradient-to-r from-primary to-primary/80"
-          >
-            Get Started
-          </Button>
+          <Link href="/login">
+            <Button variant="ghost" size="sm">
+              Sign In
+            </Button>
+          </Link>
+          <Link href="/login">
+            <Button
+              size="sm"
+              className="bg-gradient-to-r from-primary to-primary/80"
+            >
+              Get Started
+            </Button>
+          </Link>
         </div>
       </div>
     </nav>
