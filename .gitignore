@@ -50,3 +50,4 @@ pnpm-*.log
 .idea/
 *.swp
 *.bak
+apps/web/dev.db

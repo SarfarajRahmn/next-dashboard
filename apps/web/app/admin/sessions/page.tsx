@@ -1,8 +1,21 @@
 // app/admin/sessions/page.tsx
-import { auth } from "@/lib/auth/auth"
+import { auth, prisma } from "@/lib/auth/auth"
+import { formatBrowserInfo } from "@/lib/auth/browser-info"
 import { headers } from "next/headers"
-import { Card, CardContent, CardHeader, CardTitle } from "@workspace/ui/components/card"
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@workspace/ui/components/table"
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@workspace/ui/components/card"
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@workspace/ui/components/table"
 import { Badge } from "@workspace/ui/components/badge"
 import { Button } from "@workspace/ui/components/button"
 import { formatDistanceToNow } from "date-fns"
@@ -14,13 +27,15 @@ export const metadata: Metadata = {
 }
 
 export default async function AdminSessionsPage() {
-  const session = await auth.api.getSession({ headers: await headers() })
-  
-  // This is a server component, so we use auth.api
-  // In a real app with many sessions, we'd use listSessions with pagination
-  // But Better Auth's admin plugin provides listUserSessions specifically.
-  // To list ALL sessions across the app, we might need a custom query or check admin plugin docs.
-  // For now, let's provide a view that's useful for the current admin.
+  await auth.api.getSession({ headers: await headers() })
+
+  const allSessions = await prisma.session.findMany({
+    include: { user: true },
+    orderBy: { createdAt: "desc" },
+    where: { user: { banned: false } },
+  })
+
+  // This is a server component, so we use auth.api to verify auth
 
   return (
     <div className="space-y-6">
@@ -47,16 +62,52 @@ export default async function AdminSessionsPage() {
                   <TableHead>Device / Browser</TableHead>
                   <TableHead>IP Address</TableHead>
                   <TableHead>Expires</TableHead>
-                  <TableHead className="text-right">Actions</TableHead>
+                  <TableHead className="text-right">Created</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
-                <TableRow>
-                  <TableCell colSpan={5} className="h-24 text-center text-muted-foreground">
-                    To manage specific user sessions, please use the "View Sessions" action in the <strong>Users</strong> tab.
-                    This page will eventually show a global audit log.
-                  </TableCell>
-                </TableRow>
+                {allSessions.length === 0 ? (
+                  <TableRow>
+                    <TableCell
+                      colSpan={5}
+                      className="h-24 text-center text-muted-foreground"
+                    >
+                      No active sessions available.
+                    </TableCell>
+                  </TableRow>
+                ) : (
+                  allSessions.map((session) => (
+                    <TableRow key={session.id}>
+                      <TableCell>
+                        <div>
+                          <div className="font-medium">
+                            {session.user?.email || "Unknown user"}
+                          </div>
+                          <div className="text-sm text-muted-foreground">
+                            {session.user?.name || "Unknown name"}
+                          </div>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div>
+                          <div className="font-medium">
+                            {formatBrowserInfo(session.userAgent)}
+                          </div>
+                          <div className="truncate text-xs text-muted-foreground">
+                            {session.userAgent || "Unknown user agent"}
+                          </div>
+                        </div>
+                      </TableCell>
+                      <TableCell>{session.ipAddress || "Unknown"}</TableCell>
+                      <TableCell>
+                        {new Date(session.expiresAt).toLocaleString()}
+                      </TableCell>
+                      <TableCell className="text-right text-muted-foreground">
+                        {new Date(session.createdAt).toLocaleString()}
+                      </TableCell>
+                    </TableRow>
+                  ))
+                )}
               </TableBody>
             </Table>
           </div>

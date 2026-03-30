@@ -4,7 +4,13 @@
 import { useState, useEffect } from "react"
 import { useAuth } from "@/components/providers/auth-providers"
 import { authClient } from "@/lib/auth/auth-client"
-import { Card, CardContent, CardHeader, CardTitle } from "@workspace/ui/components/card"
+import { formatBrowserInfo } from "@/lib/auth/browser-info"
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@workspace/ui/components/card"
 import { Button } from "@workspace/ui/components/button"
 import { Input } from "@workspace/ui/components/input"
 import {
@@ -79,7 +85,7 @@ export function UserManagement() {
   const [newUser, setNewUser] = useState({ name: "", email: "", password: "" })
   const [actionLoading, setActionLoading] = useState(false)
 
-  const { session } = useAuth()
+  useAuth()
 
   useEffect(() => {
     fetchUsers()
@@ -255,7 +261,12 @@ export function UserManagement() {
               <UserPlus className="h-4 w-4" />
               Add User
             </Button>
-            <Button onClick={fetchUsers} variant="outline" size="sm" className="gap-2">
+            <Button
+              onClick={fetchUsers}
+              variant="outline"
+              size="sm"
+              className="gap-2"
+            >
               <ArrowsClockwise className="h-4 w-4" />
               Refresh
             </Button>
@@ -290,7 +301,9 @@ export function UserManagement() {
                     </TableCell>
                     <TableCell>
                       <Badge
-                        variant={user.role === "admin" ? "default" : "secondary"}
+                        variant={
+                          user.role === "admin" ? "default" : "secondary"
+                        }
                       >
                         {user.role}
                       </Badge>
@@ -348,9 +361,16 @@ export function UserManagement() {
                         <Button
                           variant="ghost"
                           size="sm"
-                          title={user.role === "admin" ? "Demote to user" : "Promote to admin"}
+                          title={
+                            user.role === "admin"
+                              ? "Demote to user"
+                              : "Promote to admin"
+                          }
                           onClick={() =>
-                            handleSetRole(user, user.role === "admin" ? "user" : "admin")
+                            handleSetRole(
+                              user,
+                              user.role === "admin" ? "user" : "admin"
+                            )
                           }
                         >
                           {user.role === "admin" ? (
@@ -394,27 +414,38 @@ export function UserManagement() {
             <Input
               placeholder="Full name (optional)"
               value={newUser.name}
-              onChange={(e) => setNewUser((u) => ({ ...u, name: e.target.value }))}
+              onChange={(e) =>
+                setNewUser((u) => ({ ...u, name: e.target.value }))
+              }
             />
             <Input
               type="email"
               placeholder="Email address"
               value={newUser.email}
-              onChange={(e) => setNewUser((u) => ({ ...u, email: e.target.value }))}
+              onChange={(e) =>
+                setNewUser((u) => ({ ...u, email: e.target.value }))
+              }
             />
             <Input
               type="password"
               placeholder="Password"
               value={newUser.password}
-              onChange={(e) => setNewUser((u) => ({ ...u, password: e.target.value }))}
+              onChange={(e) =>
+                setNewUser((u) => ({ ...u, password: e.target.value }))
+              }
             />
           </div>
           <DialogFooter>
-            <Button variant="outline" onClick={() => setCreateDialogOpen(false)}>
+            <Button
+              variant="outline"
+              onClick={() => setCreateDialogOpen(false)}
+            >
               Cancel
             </Button>
             <Button onClick={handleCreateUser} disabled={actionLoading}>
-              {actionLoading && <SpinnerGap className="mr-2 h-4 w-4 animate-spin" />}
+              {actionLoading && (
+                <SpinnerGap className="mr-2 h-4 w-4 animate-spin" />
+              )}
               Create User
             </Button>
           </DialogFooter>
@@ -442,8 +473,14 @@ export function UserManagement() {
             <Button variant="outline" onClick={() => setBanDialogOpen(false)}>
               Cancel
             </Button>
-            <Button variant="destructive" onClick={handleBanUser} disabled={actionLoading}>
-              {actionLoading && <SpinnerGap className="mr-2 h-4 w-4 animate-spin" />}
+            <Button
+              variant="destructive"
+              onClick={handleBanUser}
+              disabled={actionLoading}
+            >
+              {actionLoading && (
+                <SpinnerGap className="mr-2 h-4 w-4 animate-spin" />
+              )}
               Ban User
             </Button>
           </DialogFooter>
@@ -479,21 +516,30 @@ export function UserManagement() {
               Active sessions for this user. You can revoke individual sessions.
             </DialogDescription>
           </DialogHeader>
-          <div className="space-y-3 max-h-[400px] overflow-y-auto">
+          <div className="max-h-100 space-y-3 overflow-y-auto">
             {userSessions.length === 0 ? (
-              <p className="text-center text-muted-foreground py-6">
+              <p className="py-6 text-center text-muted-foreground">
                 No active sessions
               </p>
             ) : (
               userSessions.map((s) => (
                 <div
                   key={s.id}
-                  className="flex items-start justify-between rounded-lg border p-4 gap-4"
+                  className="flex items-start justify-between gap-4 rounded-lg border p-4"
                 >
-                  <div className="space-y-1 text-sm min-w-0">
-                    <p className="font-medium truncate">
-                      {s.userAgent || "Unknown device"}
+                  <div className="min-w-0 space-y-1 text-sm">
+                    <p className="truncate font-medium">
+                      {formatBrowserInfo(s.userAgent)}
                     </p>
+                    {s.userAgent ? (
+                      <p className="truncate text-xs text-muted-foreground">
+                        Full UA string: {s.userAgent}
+                      </p>
+                    ) : (
+                      <p className="truncate text-xs text-muted-foreground">
+                        Unknown user agent
+                      </p>
+                    )}
                     <p className="text-muted-foreground">
                       IP: {s.ipAddress || "Unknown"}
                     </p>
