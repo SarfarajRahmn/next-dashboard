@@ -58,7 +58,7 @@ export default async function AdminDashboardPage() {
             </CardTitle>
             <ShieldCheckIcon className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
-          <CardContent>
+          <CardContent> 
             <div className="text-2xl font-bold">—</div>
             <p className="mt-1 text-xs text-muted-foreground">
               Manage via user sessions
