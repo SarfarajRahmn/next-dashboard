@@ -1,8 +1,0 @@
-﻿
-> web@0.0.1 typecheck D:\PROJECT\next-dashboard\apps\web
-> tsc --noEmit
-
-error TS2688: Cannot find type definition file for 'bcryptjs'.
-  The file is in the program because:
-    Entry point for implicit type library 'bcryptjs'
-ΓÇëELIFECYCLEΓÇë Command failed with exit code 2.

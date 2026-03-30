@@ -2,10 +2,7 @@ import * as React from "react"
 import { Badge } from "@workspace/ui/components/badge"
 import { cn } from "@workspace/ui/lib/utils"
 
-interface SectionHeaderProps extends Omit<
-  React.HTMLAttributes<HTMLDivElement>,
-  "title"
-> {
+interface SectionHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   badge?: string
   title: string | React.ReactNode
   description?: string
@@ -22,7 +19,11 @@ export function SectionHeader({
 }: SectionHeaderProps) {
   return (
     <div
-      className={cn("mb-12", centered && "text-center", className)}
+      className={cn(
+        "mb-12",
+        centered && "text-center",
+        className
+      )}
       {...props}
     >
       {badge && (
@@ -30,16 +31,14 @@ export function SectionHeader({
           {badge}
         </Badge>
       )}
-      <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+      <h2 className="mb-4 text-3xl font-bold md:text-4xl tracking-tight text-foreground">
         {title}
       </h2>
       {description && (
-        <p
-          className={cn(
-            "max-w-2xl text-muted-foreground",
-            centered && "mx-auto"
-          )}
-        >
+        <p className={cn(
+          "text-muted-foreground max-w-2xl",
+          centered && "mx-auto"
+        )}>
           {description}
         </p>
       )}
