@@ -1,8 +1,19 @@
 // app/admin/page.tsx
 import { auth } from "@/lib/auth/auth"
 import { headers } from "next/headers"
-import { Card, CardContent, CardHeader, CardTitle } from "@workspace/ui/components/card"
-import { Users, ShieldCheck, ShieldSlash, Gauge } from "@phosphor-icons/react/dist/ssr"
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@workspace/ui/components/card"
+import {
+  Users,
+  ShieldCheck,
+  ShieldSlash,
+  Gauge,
+  ShieldCheckIcon,
+} from "@phosphor-icons/react/dist/ssr"
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -17,8 +28,9 @@ export default async function AdminDashboardPage() {
       {/* Header */}
       <div>
         <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
-        <p className="text-muted-foreground mt-1">
-          Welcome back, {session?.user?.name || "Admin"}. Here&apos;s an overview of your platform.
+        <p className="mt-1 text-muted-foreground">
+          Welcome back, {session?.user?.name || "Admin"}. Here&apos;s an
+          overview of your platform.
         </p>
       </div>
 
@@ -33,7 +45,7 @@ export default async function AdminDashboardPage() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">—</div>
-            <p className="text-xs text-muted-foreground mt-1">
+            <p className="mt-1 text-xs text-muted-foreground">
               Go to Users tab to see details
             </p>
           </CardContent>
@@ -44,11 +56,11 @@ export default async function AdminDashboardPage() {
             <CardTitle className="text-sm font-medium text-muted-foreground">
               Active Sessions
             </CardTitle>
-            <ShieldCheck className="h-4 w-4 text-muted-foreground" />
+            <ShieldCheckIcon className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">—</div>
-            <p className="text-xs text-muted-foreground mt-1">
+            <p className="mt-1 text-xs text-muted-foreground">
               Manage via user sessions
             </p>
           </CardContent>
@@ -65,7 +77,7 @@ export default async function AdminDashboardPage() {
             <div className="text-2xl font-bold capitalize">
               {session?.user?.role ?? "admin"}
             </div>
-            <p className="text-xs text-muted-foreground mt-1">
+            <p className="mt-1 text-xs text-muted-foreground">
               {session?.user?.email}
             </p>
           </CardContent>
@@ -79,8 +91,9 @@ export default async function AdminDashboardPage() {
         </CardHeader>
         <CardContent>
           <p className="text-sm text-muted-foreground">
-            Use the <strong>Users</strong> section in the sidebar to manage accounts — create users,
-            ban/unban users, promote to admin, delete accounts, and inspect active sessions.
+            Use the <strong>Users</strong> section in the sidebar to manage
+            accounts — create users, ban/unban users, promote to admin, delete
+            accounts, and inspect active sessions.
           </p>
         </CardContent>
       </Card>
