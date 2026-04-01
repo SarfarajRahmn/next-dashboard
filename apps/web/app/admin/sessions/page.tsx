@@ -42,7 +42,7 @@ export default async function AdminSessionsPage() {
       <div>
         <h1 className="text-3xl font-bold tracking-tight">Active Sessions</h1>
         <p className="text-muted-foreground">
-          Monitor and manage active user sessions across the platform.
+          Monitor and manage active user sessions across the platform..
         </p>
       </div>
 
